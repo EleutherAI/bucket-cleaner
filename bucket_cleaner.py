@@ -62,7 +62,7 @@ def delete_all_but_events(dir_path, yes=False, move_to_folder=None):
     # copies all events files in dir to a tmp dir
     if not yes:
         response = input("About to recursively delete all files but event files in {}, are you sure? [y/n]".format(dir_path))
-        if response != "y" or response != "yes":
+        if response != "y" and response != "yes":
             print('Exiting')
             return
     if remove_slash(dir_path) == "gs://{}".format(bucket_name(dir_path)):
