@@ -74,11 +74,11 @@ def delete_all_but_events(dir_path, yes=False, move_to_folder=None):
         if is_bucket_path(move_to_folder):
             parent_dir = os.path.dirname(remove_slash(move_to_folder))
             tmp_folder = "{}/{}".format(remove_slash(os.path.basename(tmp_folder)), os.path.basename(remove_slash(dir_path)))
-    os.system("gsutil rsync -r -x '^(?!.*\events.out.tfevents*).*' {} {}/{}".format(dir_path, parent_dir, tmp_folder))
-    os.system("gsutil rm -r {}".format(dir_path))
+    os.system("gsutil -m rsync -r -x '^(?!.*\events.out.tfevents*).*' {} {}/{}".format(dir_path, parent_dir, tmp_folder))
+    os.system("gsutil -m rm -r {}".format(dir_path))
     if move_to_folder is None:
-        os.system("gsutil rsync -r {}/{} {}".format(parent_dir, tmp_folder, dir_path))
-        os.system("gsutil rm -r {}/{}".format(parent_dir, tmp_folder))
+        os.system("gsutil -m rsync -r {}/{} {}".format(parent_dir, tmp_folder, dir_path))
+        os.system("gsutil -m rm -r {}/{}".format(parent_dir, tmp_folder))
 
 
 if __name__ == "__main__":
