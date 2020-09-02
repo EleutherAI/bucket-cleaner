@@ -15,6 +15,6 @@ optional arguments:
                folder structure)
 ```
 
-e.g `python bucket_cleaner.py --move gs://neo-models/archive gs://neo-models/gpt2/ `
+e.g `python bucket_cleaner.py --move gs://neo-models/archive gs://neo-models/gpt2 `
 
 will move all the events files from `gs://neo-models/gpt2/` to `gs://neo-models/archive` and delete everything else
